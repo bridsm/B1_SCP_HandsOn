@@ -1,0 +1,9 @@
+{
+  "name": "B1SL_SUMMIT_2018",
+  "version": "0.0.1",
+  "description": "",
+  "private": true,
+  "devDependencies": {
+    "@sap/grunt-sapui5-bestpractice-build": "1.3.33"
+  }
+}

@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		noDataText="No Providers Found"
+		title="Select Provider"
+		search="handleFreightDialogSearch"
+		confirm="handleFreightDialogConfirm"
+		cancel="handleFreightDialogClose"
+		items="{
+			path : '/modelData'
+		}">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier
+					title="{provider}"
+					text="{service}" />
+				<Text text="{estimated_days}" />
+				<ObjectNumber
+						number="{
+							parts:[{path:'amount'},{path:'currency'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {showMeasure: false}
+						}"
+						unit="{currency}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+					<Text text="Provider" />
+				</header>
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true" >
+				<header>
+					<Text text="Days" />
+				</header>
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<header>
+					<Text text="Amount" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

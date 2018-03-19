@@ -1,0 +1,146 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"id": "sa.B1SL_SUMMIT_2018",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"Orders": {
+				"uri": "/apihub_sandbox/sapb1/b1s/v2/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "sa.B1SL_SUMMIT_2018.view.View1",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "sa.B1SL_SUMMIT_2018.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v4.ODataModel",
+				"settings": {
+					"operationMode": "Server",
+					"synchronizationMode": "None",
+					"groupId": "$direct"
+				},
+				"dataSource": "Orders",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "sa.B1SL_SUMMIT_2018.view",
+				"controlAggregation": "pages",
+				"controlId": "idAppControl"
+			},
+			"routes": [
+				{
+					"name": "RouteView1",
+					"pattern": "RouteView1",
+					"target": [
+						"TargetView1"
+					]
+				},
+				{
+					"name": "Details_binded",
+					"pattern": "Details/{DocEntry}",
+					"target": [
+						"Details"
+					]
+				},
+				{
+					"name": "View1",
+					"pattern": "View1",
+					"target": [
+						"TargetView1"
+					]
+				}
+			],
+			"targets": {
+				"TargetView1": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "View1",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "sa.B1SL_SUMMIT_2018.view",
+					"controlAggregation": "pages",
+					"controlId": "idAppControl"
+				},
+				"Details": {
+					"viewType": "XML",
+					"viewName": "Details"
+				}
+			},
+			"additionalData": {
+				"sa.B1SL_SUMMIT_2018.view.Details": {
+					"routeName": "Details_binded",
+					"entitySet": "/Orders"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sa.B1SL_SUMMIT_2018.controller.View1" displayBlock="true" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+				    <Table noDataText="Drop column list items here and columns in the area above" items="{/Orders}" id="__table0">
+				        <items>
+				            <ColumnListItem type="Active" id="__item0" press="action" action:wiring="\{'press':\{'navigation':\{'routeName':'Details_binded','keys':[\{'name':'DocEntry','type':'Edm.Int32'\}]\}\}\}">
+				                <cells>
+				                    <Text text="{DocEntry}" id="__text0"/>
+				                    <Text text="{CardCode}" id="__text1"/>
+				                    <Text text="{DocTotal}{DocCurrency}" id="__text2"/></cells>
+				            </ColumnListItem>
+				        </items>
+				        <columns>
+				            <Column id="__column0">
+				                <header>
+				                    <Label text="DocEntry" id="__label0"/>
+				                </header>
+				            </Column>
+				            <Column id="__column1">
+				                <header>
+				                    <Label text="CardCode" id="__label1"/>
+				                </header>
+				            </Column>
+				            <Column id="__column2">
+				                <header>
+				                    <Label text="DocTotal" id="__label2"/>
+				                </header>
+				            </Column></columns>
+				        <headerToolbar>
+				            <Toolbar width="100%" id="__toolbar2">
+				                <content>
+				                    <SearchField width="100%" placeholder="Search" id="__field0" search="onSearch"/>
+				                </content>
+				            </Toolbar>
+				        </headerToolbar></Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

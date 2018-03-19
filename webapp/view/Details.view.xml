@@ -1,0 +1,19 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:action="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" controllerName="sa.B1SL_SUMMIT_2018.controller.Details">
+	<App>
+		<pages>
+			<Page title="Title" showNavButton="true" navButtonPress="action" action:wiring="\{'navButtonPress':\{'navigation':\{'routeName':'View1'\}\}\}">
+				<content>
+				    <ObjectHeader title="{CardCode}" number="{DocTotal}" numberUnit="{DocCurrency}" intro="{DocEntry}" introActive="true" titleActive="true" id="__header0"/>
+				</content>
+			<footer>
+			    <Toolbar width="100%" id="__toolbar1">
+			        <content>
+			            <HBox width="100%" id="__hbox0"/>
+			            <Button text="Add Freight" width="100px" id="__button0" action:wiring="\{\}" press="onAddFreightPress"/>
+			        </content>
+			    </Toolbar>
+			</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
